@@ -1,4 +1,4 @@
-Simple Chat app base on NodeJS and socket.io.
+Simple Chat app based on NodeJS and socket.io.
 ===================
 
 
