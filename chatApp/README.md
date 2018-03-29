@@ -1,6 +1,4 @@
-A Simple real time chat app using NodeJS and socket.io.
+Simple Chat app base on NodeJS and socket.io.
 ===================
 
-
- 
 

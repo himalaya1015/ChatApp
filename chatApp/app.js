@@ -2,32 +2,27 @@ const express = require('express')
 const app = express()
 
 
-//set the template engine ejs
+//template engine
 app.set('view engine', 'ejs')
 
-//middlewares
+//middleware
 app.use(express.static('public'))
 
-
-//routes
 app.get('/', (req, res) => {
 	res.render('index')
 })
 
-//Listen on port 3000
 server = app.listen(3000)
-
-
 
 //socket.io instantiation
 const io = require("socket.io")(server)
 
 
-//listen on every connection
+//listen on every connection and provide info requested ny client 
 io.on('connection', (socket) => {
 	console.log('New user connected')
 
-	//default username
+	//default
 	socket.username = "Anonymous"
 
     //listen on change_username

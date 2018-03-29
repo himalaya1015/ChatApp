@@ -1,6 +1,6 @@
 
 $(function(){
-   	//make connection
+   	//connection
 	var socket = io.connect('http://localhost:3000')
 
 	//buttons and inputs
@@ -11,19 +11,19 @@ $(function(){
 	var chatroom = $("#chatroom")
 	var feedback = $("#feedback")
 
-	//Emit message
+	//Emit message and ask server to return values for prining
 	send_message.click(function(){
 		socket.emit('new_message', {message : message.val()})
 	})
 
-	//Listen on new_message
+	//Listen on new_message and chat box m msg daalo username k sath
 	socket.on("new_message", (data) => {
 		feedback.html('');
 		message.val('');
 		chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
 	})
 
-	//Emit a username
+	//Emit a username. isme kuch print nhi krana isliye no updation
 	send_username.click(function(){
 		socket.emit('change_username', {username : username.val()})
 	})
